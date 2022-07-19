@@ -45,4 +45,8 @@ recipeSelected = new EventEmitter<Recipe>();
      addIngredientsToShoppingList(ingredients: Ingredient[]){
         this.slService.addIngredients(ingredients);
      } 
+
+     getRecipeByID(id: number){
+      return this.recipes[id]
+     }
 }
