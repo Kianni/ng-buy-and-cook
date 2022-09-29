@@ -14,8 +14,8 @@ export class RecipeDetailComponent implements OnInit {
   id: number;
 
   constructor(private recipeService: RecipeService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     // const id = this.route.snapshot.params['id'];
@@ -26,18 +26,21 @@ export class RecipeDetailComponent implements OnInit {
           this.recipe = this.recipeService.getRecipeByID(this.id);
         }
       )
-    
+
   }
 
-  onAddToShoppingList(){
+  onAddToShoppingList() {
     // this.recipeService.onAddComponents.emit(this.recipe.ingredients)
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 
-  onEditRecipe(){
+  onEditRecipe() {
     // this.router.navigate(['edit'], {relativeTo: this.route});
-    this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+    this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
   }
 
-
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
+  }
 }
