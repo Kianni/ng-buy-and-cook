@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { recipes } from "src/assets/section-19-894a1-default-rtdb-export";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { Recipe } from "./recipe.model";
@@ -37,6 +38,7 @@ export class RecipeService {
   // ];
 
   private recipes: Recipe[] = [];
+  // private recipes = recipes;
 
   constructor(private slService: ShoppingListService) { }
 
